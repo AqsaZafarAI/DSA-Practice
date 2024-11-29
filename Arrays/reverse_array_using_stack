@@ -1,0 +1,47 @@
+class Stack:
+  def __init__(self):
+    #self.head = None
+    #self.size = 0
+
+    self.stack = []
+
+  def push(self, element):
+    return self.stack.append(element)
+
+
+  def pop(self):
+    if self.stack == 0:
+      print("Stack is Empty")
+    return self.stack.pop()
+
+
+  def peak(self):
+    if self.stack == 0:
+      print("Stack is Empty")
+    return self.stack[-1]
+
+
+  def isEmpty(self):
+    return len(self.stack) == 0
+
+
+  def size(self):
+    return len(self.stack)
+
+
+  def reverse(self):
+    return self.stack[::-1]
+
+
+mystack = Stack()
+mystack.push(6)
+mystack.push(7)
+mystack.push(3)
+mystack.push(11)
+
+print("Stack: ", mystack.stack)
+print("peak: ", mystack.peak())
+print("pop: ", mystack.pop())
+print("isEmpty: ", mystack.isEmpty())
+print("size: ", mystack.size())
+print("Reverse: ", mystack.reverse())

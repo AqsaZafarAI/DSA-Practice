@@ -1,0 +1,45 @@
+
+# Print middle of linked list
+class Node:
+  def __init__(self, data):
+    self.data = data
+    self.next = None
+
+
+def traverse(current):
+  current = node1
+  while current:
+    print(current.data, end = '->')
+    current = current.next
+
+
+def find_middle(head):
+  half_step = head
+  full_step = head
+  while full_step and full_step.next:
+    half_step = half_step.next
+    full_step = full_step.next.next
+  return half_step.data
+
+
+
+
+
+node1 = Node(7)
+node2 = Node(8)
+node3 = Node(6)
+node4 = Node(4)
+node5 = Node(9)
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+
+#linked_list = traverse(node1)
+#print(linked_list)
+print("Traversed Linked list is: ")
+traverse(node1)
+
+print("\nMiddle of Linked List is: ")
+find_middle(node1)

@@ -1,0 +1,35 @@
+def mergeSort(array):
+  if len(array) <= 1:
+    return(array)
+
+  mid = len(array) // 2
+  lefthalf = array[:mid]
+  righthalf = array[mid:]
+
+  sorted_left = mergeSort(lefthalf)
+  sorted_right = mergeSort(righthalf)
+
+  return merge(sorted_left, sorted_right)
+
+def merge(left, right):
+  result = []
+  i = j = 0
+
+  while i < len(left) and j < len(right):
+    if left[i] < right[j]:
+      result.append (left[i])
+      i += 1
+
+    else:
+      result.append (right[j])
+      j += 1
+
+
+  result.extend (left[i:])
+  result.extend (right[j:])
+  return result
+
+array = [20, 8, 4, 0, 5, 25.5, -10, 8, 5, 3]
+print ("Unsorted Array: ", array)
+sortedArray = mergeSort(array)
+print("Sorted Array: ", sortedArray)

@@ -1,0 +1,21 @@
+array = [345, 456, 569, 987, 245, 122, 456, 789, 234]
+print("Unsorted Array: ", array)
+radixArray = [[], [], [], [], [], [], [], [], [], []]
+maxVal = max(array)
+exp = 1
+
+while maxVal // exp > 0:
+
+  while len(array) > 0:
+    val = array.pop()
+    radixIndex = (val // exp) % 10
+    radixArray[radixIndex].append(val)
+
+  for bucket in radixArray:
+    while len(bucket) > 0:
+      val = bucket.pop()
+      array.append(val)
+
+  exp *= 10
+
+print("Sorted Array: ", array)

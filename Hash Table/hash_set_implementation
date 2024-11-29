@@ -1,0 +1,64 @@
+class SimpleHashSet:
+    def __init__(self, size=100):
+        self.size = size
+        self.buckets = [[] for _ in range(size)]  # A list of buckets, each is a list (to handle collisions)
+
+    def hash_function(self, value):
+      sum_of_chars = 0
+      for char in value:
+        sum_of_chars += ord(char)
+      return sum_of_chars % 10
+
+
+    def add(self, value):
+      index = self.hash_function(value)
+      bucket = self.buckets[index]
+      if value not in bucket:
+        bucket.append(value)
+
+
+    def remove(self, value):
+      index = self.hash_function(value)
+      bucket = self.buckets[index]
+      if value in bucket:
+        bucket.remove(value)
+      else:
+        print(value, "is not in Bucket")
+
+
+    def contains(self, value):
+      index = self.hash_function(value)
+      bucket = self.buckets[index]
+      if value in bucket:
+        return True
+      else:
+        return False
+
+
+    def print_set(self):
+      for index, bucket in enumerate(self.buckets):
+        print(f"Bucket {index}: {bucket}")
+
+
+
+
+hashset = SimpleHashSet(size = 10)
+
+hashset.add('peter')
+hashset.add('Lisa')
+hashset.add('Mochli')
+hashset.add('Monoliza')
+hashset.add('Fredrick')
+hashset.add('Bob')
+hashset.add('Alix')
+
+hashset.print_set()
+
+print("\nBefore removing Mochli")
+print("Mochli is in the set: ", hashset.contains('Mochli'))
+
+hashset.remove('Mochli')
+print("\nAfter removing Mochli")
+print("Mochli is in the set: ", hashset.contains('Mochli'))
+
+print("\nBob has hashcode: ", hashset.hash_function('Bob'))

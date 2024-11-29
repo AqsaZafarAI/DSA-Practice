@@ -1,0 +1,16 @@
+def countSort(array):
+  highest_value = max(array)  # We find maximum value bcz, suppose it we have 6 highest value in array, then in count, 6 will be positioned at index 6. so will make count list with 6+1 indexes.
+  count = [0] * (highest_value+1)
+
+  while len(array) > 0:
+    num = array.pop(0)
+    count[num] += 1
+
+  for i in range (len(count)):
+    while count[i] > 0:
+      array.append(i)
+      count[i] -= 1
+
+array = [5, 8, 5, 3, 9, 4, 6, 5, 8, 6]
+countSort(array)
+print ("Sorted Array: ", array)

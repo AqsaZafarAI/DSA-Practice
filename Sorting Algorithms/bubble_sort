@@ -1,0 +1,17 @@
+array = [3, 6, 9, 2, 8, 4, 6, 1, 0, 2]
+
+def bubbleSort():
+  n = len(array)
+  for i in range(n):
+    swapped = False
+    for j in range(n-i-1):
+      if array[j] > array[j+1]:
+        array[j], array[j+1] = array[j+1], array[j]
+        swapped = True
+
+    if not swapped:
+      break
+
+print("Unsorted Array: ", array)
+bubbleSort()
+print("Sorted Array: ", array)

@@ -1,0 +1,7 @@
+array = [5, 8, 8, 7, 3, 6]
+print("Array:", array)
+min_value = array[0]
+for i in array:
+  if i < min_value:
+    min_value = i
+print(min_value)
